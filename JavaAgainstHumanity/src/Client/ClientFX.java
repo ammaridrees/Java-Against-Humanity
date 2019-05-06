@@ -237,6 +237,7 @@ public class ClientFX extends Application {
 
         submitthirdinput.setOnAction(e -> {
             answer = quesanswer.getText();
+            quesanswer.clear();
             try {
                 conn.send(answer);
             } catch (Exception submitthirdinput) {

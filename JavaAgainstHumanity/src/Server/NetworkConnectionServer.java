@@ -149,6 +149,7 @@ public abstract class NetworkConnectionServer{
                 if (i == 4) {
                     for (int k = 0; k < clientList.size(); k++) {
                         clientList.get(k).getOutputStream().writeObject("You may now begin the game!!!");
+                        clientList.get(k).setClient(" ");
                     } // NEW ADDITION
                 }
                 for (int k = 0; k < clientList.size(); k++) {
@@ -168,179 +169,60 @@ public abstract class NetworkConnectionServer{
                     callback.accept(data);
                     setClient(data.toString().intern());
 
-                    // FOR CLIENT 1
-                    if (clientList.get(0).getClient() != "Blank String" && clientList.get(0).getClient() != "2" &&
-                            clientList.get(0).getClient() != "3" && clientList.get(0).getClient() != "4") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject(clientMessage());
-                            clientList.get(k).getOutputStream().writeObject("Client 1 asked this question:");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Clients you may now answer the question:");
-                            clientList.get(k).setClient("Blank String");
+                    if(clientList.get(0).getClient() == "2" || clientList.get(0).getClient() == "3"
+                            || clientList.get(0).getClient() == "4" || clientList.get(1).getClient() == "1" ||
+                            clientList.get(1).getClient() == "3" || clientList.get(1).getClient() == "4" ||
+                            clientList.get(2).getClient() == "1" || clientList.get(2).getClient() == "2"
+                            || clientList.get(2).getClient() == "4" || clientList.get(3).getClient() == "1" ||
+                            clientList.get(3).getClient() == "2" || clientList.get(3).getClient() == "3") {
 
-                        }
-
-                    } else if(clientList.get(1).getClient() != "Blank String" && clientList.get(2).getClient() != "Blank String"
-                        && clientList.get(3).getClient() != "Blank String") {
+                        if(clientList.get(1).getClient() == "1" || clientList.get(2).getClient() == "1" ||
+                                clientList.get(3).getClient() == "1"  ) {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 2 answered like this: ");
+                                clientList.get(k).getOutputStream().writeObject("Client 1 will ask the next question.");
+                                clientList.get(k).setClient(" ");
+                            }
+                        } else if(clientList.get(0).getClient() == "2" || clientList.get(2).getClient() == "2" ||
+                                clientList.get(3).getClient() == "2" ) {
+                            for (int k = 0; k < clientList.size(); k++) {
+                                clientList.get(k).getOutputStream().writeObject("Client 2 will ask the next question.");
+                                clientList.get(k).setClient(" ");
+                            }
+                        } else if(clientList.get(0).getClient() == "3" || clientList.get(1).getClient() == "3" ||
+                                clientList.get(4).getClient() == "3" ) {
+                            for (int k = 0; k < clientList.size(); k++) {
+                                clientList.get(k).getOutputStream().writeObject("Client 3 will ask the next question.");
+                                clientList.get(k).setClient(" ");
+                            }
+                        } else if(clientList.get(0).getClient() == "4" || clientList.get(1).getClient() == "4" ||
+                                clientList.get(3).getClient() == "4" ) {
+                            for (int k = 0; k < clientList.size(); k++) {
+                                clientList.get(k).getOutputStream().writeObject("Client 4 will ask the next question.");
+                                clientList.get(k).setClient(" ");
+                            }
+                        }
+                    } else if(clientList.get(0).getClient() != " " || clientList.get(1).getClient() != " "
+                            || clientList.get(2).getClient() != " " ||
+                            clientList.get(3).getClient() != " ") {
+                            for (int k = 0; k < clientList.size(); k++) {
+                                clientList.get(k).getOutputStream().writeObject("Client 1");
+                                clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
+                                clientList.get(k).getOutputStream().writeObject("Client 2");
                                 clientList.get(k).getOutputStream().writeObject(clientList.get(1).getClient());
-                                clientList.get(k).getOutputStream().writeObject("Client 3 answered like this: ");
+                                clientList.get(k).getOutputStream().writeObject("Client 3");
                                 clientList.get(k).getOutputStream().writeObject(clientList.get(2).getClient());
-                                clientList.get(k).getOutputStream().writeObject("Client 4 answered like this: ");
+                                clientList.get(k).getOutputStream().writeObject("Client 4");
                                 clientList.get(k).getOutputStream().writeObject(clientList.get(3).getClient());
-                                clientList.get(k).getOutputStream().writeObject("Client 1, please choose the next client.");
-                                clientList.get(k).setClient("Blank String");
                             }
-                    } else if(clientList.get(0).getClient() == "2" || clientList.get(0).getClient() == "3"
-                            || clientList.get(0).getClient() == "4") {
-                        if(clientList.get(0).getClient() == "2") {
+                        if(clientList.get(0).getClient() != " " && clientList.get(1).getClient() != " "
+                                && clientList.get(2).getClient() != " " && clientList.get(3).getClient() != " ") {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 2 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
+                                clientList.get(k).getOutputStream().writeObject("Please choose the next client.");
+                                clientList.get(k).setClient(" ");
                             }
-                        } else if(clientList.get(0).getClient() == "3") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 3 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(0).getClient() == "4") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 4 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        }
-                    } // FOR CLIENT 2
-                    if (clientList.get(1).getClient() != "Blank String" && clientList.get(1).getClient() != "1" &&
-                            clientList.get(1).getClient() != "3" && clientList.get(1).getClient() != "4") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject(clientMessage());
-                            clientList.get(k).getOutputStream().writeObject("Client 2 asked this question:");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(1).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Clients you may now answer the question:");
-                            clientList.get(k).setClient("Blank String");
-
                         }
 
-                    } else if(clientList.get(0).getClient() != "Blank String" && clientList.get(2).getClient() != "Blank String"
-                            && clientList.get(3).getClient() != "Blank String") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject("Client 1 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 3 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(2).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 4 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(3).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 2, please choose the next client.");
-                            clientList.get(k).setClient("Blank String");
-                        }
-                    } else if(clientList.get(1).getClient() == "1" || clientList.get(1).getClient() == "3"
-                            || clientList.get(1).getClient() == "4") {
-                        if(clientList.get(1).getClient() == "1") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 1 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(1).getClient() == "3") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 3 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(1).getClient() == "4") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 4 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        }
-                    } // FOR CLIENT 3
-                    if (clientList.get(2).getClient() != "Blank String" && clientList.get(2).getClient() != "2" &&
-                            clientList.get(2).getClient() != "3" && clientList.get(2).getClient() != "4") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject(clientMessage());
-                            clientList.get(k).getOutputStream().writeObject("Client 3 asked this question:");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(2).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Clients you may now answer the question:");
-                            clientList.get(k).setClient("Blank String");
-
-                        }
-
-                    } else if(clientList.get(0).getClient() != "Blank String" && clientList.get(1).getClient() != "Blank String"
-                            && clientList.get(3).getClient() != "Blank String") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject("Client 1 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 2 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(1).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 4 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(3).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 3, please choose the next client.");
-                            clientList.get(k).setClient("Blank String");
-                        }
-                    } else if(clientList.get(2).getClient() == "1" || clientList.get(2).getClient() == "2"
-                            || clientList.get(2).getClient() == "4") {
-                        if(clientList.get(2).getClient() == "1") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 1 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(2).getClient() == "2") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 2 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(2).getClient() == "4") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 4 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        }
-                    } // FOR CLIENT 4
-
-                    if (clientList.get(3).getClient() != "Blank String" && clientList.get(3).getClient() != "2" &&
-                            clientList.get(3).getClient() != "3" && clientList.get(3).getClient() != "4") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject(clientMessage());
-                            clientList.get(k).getOutputStream().writeObject("Client 4 asked this question:");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(3).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Clients you may now answer the question:");
-                            clientList.get(k).setClient("Blank String");
-
-                        }
-
-                    } else if(clientList.get(0).getClient() != "Blank String" && clientList.get(1).getClient() != "Blank String"
-                            && clientList.get(2).getClient() != "Blank String") {
-                        for (int k = 0; k < clientList.size(); k++) {
-                            clientList.get(k).getOutputStream().writeObject("Client 1 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 2 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(1).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 3 answered like this: ");
-                            clientList.get(k).getOutputStream().writeObject(clientList.get(2).getClient());
-                            clientList.get(k).getOutputStream().writeObject("Client 4, please choose the next client.");
-                            clientList.get(k).setClient("Blank String");
-                        }
-                    } else if(clientList.get(3).getClient() == "1" || clientList.get(3).getClient() == "2"
-                            || clientList.get(3).getClient() == "3") {
-                        if(clientList.get(3).getClient() == "1") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 1 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(3).getClient() == "2") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 2 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        } else if(clientList.get(3).getClient() == "3") {
-                            for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 3 will ask the next question.");
-                                clientList.get(k).setClient("Blank String");
-                            }
-                        }
                     }
-
-
-
                 }
             } catch (Exception e) {
                 callback.accept("Connection closed");
