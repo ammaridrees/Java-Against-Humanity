@@ -23,17 +23,13 @@ import javafx.stage.Stage;
 
 
 public class ClientFX extends Application {
-    private Button rock;
-    private Button scissors;
-    private Button paper;
-    private Button lizard;
-    private Button spock;
     private Button playAgain;
     private Button quit;
     private Button submitfirstinput;
     private Button challenge;
     private Button submitsecondinput;
     private Button closeWindow;
+    private Button submitthirdinput;
 
     private Scene play;
     private Scene firstwindow;
@@ -43,6 +39,7 @@ public class ClientFX extends Application {
     private String clientPick;
     private String ipAddress;
     private String portAddress;
+    private String answer;
 
     private int portAddresses;
 
@@ -91,23 +88,15 @@ public class ClientFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Rock - Paper - Scissors - Lizard - Spock");
+        primaryStage.setTitle("Java Against Humanity");
 
-        welcomeMessage = new Text("Welcome to Rock Paper Scissors Lizard Spock!");
+        welcomeMessage = new Text("Welcome to Java Against Humanity!");
         welcomeMessage.setFont(Font.font("", FontPosture.ITALIC, 18));
         rulesMessage = new Text(
-                "Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes " +
-                        "scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock " +
-                        "vaporizes rock, and rock crushes scissors.");
-        startMessage = new Text("Please make your selection below:");
-        startMessage.setFont(Font.font("", FontPosture.ITALIC, 12));
-        clientMessage = new Text("If you are Client 3 or greater then you can use the Challenge button.");
-
-        Image rockImage = new Image("rock.png");
-        Image paperImage = new Image("paper.png");
-        Image scissorsImage = new Image("scissors.png");
-        Image lizardImage = new Image("lizard.png");
-        Image spockImage = new Image("spock.png");
+                "The rules for this game are simple. Ask a question and choose the best answer. The first client to ask" +
+                        "will be client1 but after that it will be the client that has the best answer.");
+        startMessage = new Text("When choosing a client please just enter the number of the client.");
+        clientMessage = new Text("Use the Challenge button at your own risk.");
 
         // NEW ADDITION
         ImageView hallenbeckImage = new ImageView("hallenbeck.jpg");
@@ -117,16 +106,18 @@ public class ClientFX extends Application {
         hallenbeckImage.setFitWidth(157);
         hallenbeckImage.setPreserveRatio(true);
 
-        hallenbeckMessage = new Text("Challenge declined!!! Better Luck next time!!!");
+        hallenbeckMessage = new Text("You think you are so great by pressing that challenge button. Think again, freedom " +
+                "isn't freedom, two players aren't two players.");
         hallenbeckMessage.setFont(Font.font("", FontPosture.ITALIC, 18));
 
         closingMessage = new Text("You may now hit the button to " +
-                "close the window. Thanks for playing RPSLS which is presented by Mark Hallenbeck and the UIC staff.");
+                "close the window. Thanks for playing Java Against Humanity which is presented by Mark Hallenbeck " +
+                "and the UIC staff.");
         closingMessage.setFont(Font.font("", FontPosture.ITALIC, 18));
 
         VBox h5 = new VBox();
         h5.getChildren().addAll(hallenbeckMessage,closingMessage);
-        h5.setAlignment(Pos.CENTER);
+        h5.setAlignment(Pos.CENTER_LEFT);
 
         Group root = new Group(hallenbeckImage);
 
@@ -143,31 +134,23 @@ public class ClientFX extends Application {
 
         BorderPane border6 = new BorderPane();
         border6.setCenter(h6);
-        // NEW ADDITION ENDS
 
-        rock = new Button("  Rock  ");
-        rock.setGraphic(new ImageView(rockImage));
-        paper = new Button("  Paper  ");
-        paper.setGraphic(new ImageView(paperImage));
-        scissors = new Button("   Scissors   ");
-        scissors.setGraphic(new ImageView(scissorsImage));
-        lizard = new Button("   Lizard   ");
-        lizard.setGraphic(new ImageView(lizardImage));
-        spock = new Button("   Spock   ");
-        spock.setGraphic(new ImageView(spockImage));
+        VBox vbox7 = new VBox();
+        submitthirdinput = new Button("Submit your question or answer!");
+        TextField quesanswer = new TextField();
+        Label gameplay = new Label("Ask or Answer!");
+        gameplay.setLabelFor(quesanswer);
+        gameplay.setAlignment(Pos.CENTER);
+        vbox7.getChildren().addAll(quesanswer,submitthirdinput);
+
+        // NEW ADDITION ENDS
         playAgain = new Button("Play Again");
         quit = new Button("Quit");
         challenge = new Button("Challenge");
 
         VBox vbox = new VBox();
-        vbox.getChildren().addAll(welcomeMessage, rulesMessage,clientMessage, startMessage);
+        vbox.getChildren().addAll(welcomeMessage,rulesMessage,startMessage,clientMessage);
         vbox.setAlignment(Pos.CENTER);
-
-        HBox hbox1 = new HBox();
-        hbox1.getChildren().addAll(rock, paper, scissors, lizard, spock);
-        hbox1.setAlignment(Pos.CENTER);
-        hbox1.setPadding(new Insets(5, 5, 5, 5));
-        hbox1.setSpacing(15);
 
         HBox hbox3 = new HBox();
         hbox3.getChildren().addAll(playAgain,challenge,quit);
@@ -175,7 +158,7 @@ public class ClientFX extends Application {
         hbox3.setSpacing(15);
 
         VBox main = new VBox(5);
-        main.getChildren().addAll(vbox, hbox1, createContent(), hbox3);
+        main.getChildren().addAll(vbox,vbox7,createContent(), hbox3);
         main.setAlignment(Pos.CENTER);
         main.setPadding(new Insets(15, 15, 15, 15));
 
@@ -213,7 +196,7 @@ public class ClientFX extends Application {
         VBox secondWindow = new VBox(5);
         submitsecondinput = new Button("Submit");
         TextField whichclient = new TextField();
-        Label clients = new Label("Which client do you want to challenge?");
+        Label clients = new Label("Ask a question.");
         clients.setLabelFor(whichclient);
         clients.setAlignment(Pos.CENTER);
         secondWindow.getChildren().add(whichclient);
@@ -239,56 +222,6 @@ public class ClientFX extends Application {
 
         challengedeclined = new Scene(border6,600,600); // NEW ADDITION
 
-        rock.setOnAction(e -> {
-            clientPick = "Rock";
-            try {
-                conn.send(clientPick);
-            }
-            catch(Exception rock) {
-
-            }
-        });
-
-        paper.setOnAction(e -> {
-            clientPick = "Paper";
-            try {
-                conn.send(clientPick);
-            }
-            catch(Exception p) {
-
-            }
-        });
-
-        scissors.setOnAction(e -> {
-            clientPick = "Scissors";
-            try {
-                conn.send(clientPick);
-            }
-            catch(Exception s) {
-
-            }
-        });
-
-        lizard.setOnAction(e -> {
-            clientPick = "Lizard";
-            try {
-                conn.send(clientPick);
-            }
-            catch(Exception l) {
-
-            }
-        });
-
-        spock.setOnAction(e -> {
-            clientPick = "Spock";
-            try {
-                conn.send(clientPick);
-            }
-            catch(Exception sp) {
-
-            }
-        });
-
         submitfirstinput.setOnAction(e -> {
             ipAddress = ip.getText();
             portAddress = port.getText();
@@ -301,6 +234,15 @@ public class ClientFX extends Application {
             }
             primaryStage.setScene(play);
         });
+
+        submitthirdinput.setOnAction(e -> {
+            answer = quesanswer.getText();
+            try {
+                conn.send(answer);
+            } catch (Exception submitthirdinput) {
+
+            }
+        } );
 
         playAgain.setOnAction(e -> {
             clientPick = "Play Again";
