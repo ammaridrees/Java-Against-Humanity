@@ -195,15 +195,14 @@ public abstract class NetworkConnectionServer{
                                 clientList.get(k).setClient(" ");
                             }
                         } else if(clientList.get(0).getClient() == "4" || clientList.get(1).getClient() == "4" ||
-                                clientList.get(3).getClient() == "4" ) {
+                                clientList.get(2).getClient() == "4" ) {
                             for (int k = 0; k < clientList.size(); k++) {
                                 clientList.get(k).getOutputStream().writeObject("Client 4 will ask the next question.");
                                 clientList.get(k).setClient(" ");
                             }
                         }
                     } else if(clientList.get(0).getClient() != " " || clientList.get(1).getClient() != " "
-                            || clientList.get(2).getClient() != " " ||
-                            clientList.get(3).getClient() != " ") {
+                            || clientList.get(2).getClient() != " " || clientList.get(3).getClient() != " ") {
                             for (int k = 0; k < clientList.size(); k++) {
                                 clientList.get(k).getOutputStream().writeObject("Client 1");
                                 clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
