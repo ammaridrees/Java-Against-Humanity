@@ -94,7 +94,7 @@ public class ClientFX extends Application {
         welcomeMessage.setFont(Font.font("", FontPosture.ITALIC, 18));
         rulesMessage = new Text(
                 "The rules for this game are simple. Ask a question and choose the best answer. The first client to ask" +
-                        "will be Client 1 but after that it will be the client that has the best answer.");
+                        " will be the first client to submit a question and after that the same policy will apply.");
         startMessage = new Text("When choosing a client please just enter Client # (# stands for the number you want to choose).");
         clientMessage = new Text("Use the Challenge button at your own risk.");
 

@@ -179,25 +179,25 @@ public abstract class NetworkConnectionServer{
                         if(clientList.get(1).getClient() == "Client 1" || clientList.get(2).getClient() == "Client 1" ||
                                 clientList.get(3).getClient() == "Client 1"  ) {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 1 will ask the next question.");
+                                clientList.get(k).getOutputStream().writeObject("Client 1 had the best answer.");
                                 clientList.get(k).setClient(" ");
                             }
                         } else if(clientList.get(0).getClient() == "Client 2" || clientList.get(2).getClient() == "Client 2" ||
                                 clientList.get(3).getClient() == "Client 2" ) {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 2 will ask the next question.");
+                                clientList.get(k).getOutputStream().writeObject("Client 2 had the best answer.");
                                 clientList.get(k).setClient(" ");
                             }
                         } else if(clientList.get(0).getClient() == "Client 3" || clientList.get(1).getClient() == "Client 3" ||
                                 clientList.get(3).getClient() == "Client 3" ) {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 3 will ask the next question.");
+                                clientList.get(k).getOutputStream().writeObject("Client 3 had the best answer.");
                                 clientList.get(k).setClient(" ");
                             }
                         } else if(clientList.get(0).getClient() == "Client 4" || clientList.get(1).getClient() == "Client 4" ||
                                 clientList.get(2).getClient() == "Client 4" ) {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 4 will ask the next question.");
+                                clientList.get(k).getOutputStream().writeObject("Client 4 had the best answer.");
                                 clientList.get(k).setClient(" ");
                             }
                         }
