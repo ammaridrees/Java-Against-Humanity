@@ -169,7 +169,15 @@ public abstract class NetworkConnectionServer{
                     callback.accept(data);
                     setClient(data.toString().intern());
 
-                    if(clientList.get(0).getClient() == "Client 2" || clientList.get(0).getClient() == "Client 3"
+                    for (int k = 0; k < clientList.size(); k++) {
+                        if (clientList.get(k).getClient() == "Quit") {
+                            for (int x = 0; x < clientList.size(); x++) {
+                                clientList.remove(x);
+                            }
+                        }
+                    }
+
+                        if(clientList.get(0).getClient() == "Client 2" || clientList.get(0).getClient() == "Client 3"
                             || clientList.get(0).getClient() == "Client 4" || clientList.get(1).getClient() == "Client 1" ||
                             clientList.get(1).getClient() == "Client 3" || clientList.get(1).getClient() == "Client 4" ||
                             clientList.get(2).getClient() == "Client 1" || clientList.get(2).getClient() == "Client 2"
@@ -204,15 +212,15 @@ public abstract class NetworkConnectionServer{
                     } else if(clientList.get(0).getClient() != " " || clientList.get(1).getClient() != " "
                             || clientList.get(2).getClient() != " " || clientList.get(3).getClient() != " ") {
                             for (int k = 0; k < clientList.size(); k++) {
-                                clientList.get(k).getOutputStream().writeObject("Client 1");
-                                clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
-                                clientList.get(k).getOutputStream().writeObject("Client 2");
-                                clientList.get(k).getOutputStream().writeObject(clientList.get(1).getClient());
-                                clientList.get(k).getOutputStream().writeObject("Client 3");
-                                clientList.get(k).getOutputStream().writeObject(clientList.get(2).getClient());
-                                clientList.get(k).getOutputStream().writeObject("Client 4");
-                                clientList.get(k).getOutputStream().writeObject(clientList.get(3).getClient());
-                            }
+                                    clientList.get(k).getOutputStream().writeObject("Client 1");
+                                    clientList.get(k).getOutputStream().writeObject(clientList.get(0).getClient());
+                                    clientList.get(k).getOutputStream().writeObject("Client 2");
+                                    clientList.get(k).getOutputStream().writeObject(clientList.get(1).getClient());
+                                    clientList.get(k).getOutputStream().writeObject("Client 3");
+                                    clientList.get(k).getOutputStream().writeObject(clientList.get(2).getClient());
+                                    clientList.get(k).getOutputStream().writeObject("Client 4");
+                                    clientList.get(k).getOutputStream().writeObject(clientList.get(3).getClient());
+                                }
                         if(clientList.get(0).getClient() != " " && clientList.get(1).getClient() != " "
                                 && clientList.get(2).getClient() != " " && clientList.get(3).getClient() != " ") {
                             for (int k = 0; k < clientList.size(); k++) {
