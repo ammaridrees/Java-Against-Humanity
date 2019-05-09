@@ -94,8 +94,8 @@ public class ClientFX extends Application {
         welcomeMessage.setFont(Font.font("", FontPosture.ITALIC, 18));
         rulesMessage = new Text(
                 "The rules for this game are simple. Ask a question and choose the best answer. The first client to ask" +
-                        "will be client1 but after that it will be the client that has the best answer.");
-        startMessage = new Text("When choosing a client please just enter the number of the client.");
+                        "will be Client 1 but after that it will be the client that has the best answer.");
+        startMessage = new Text("When choosing a client please just enter Client # (# stands for the number you want to choose).");
         clientMessage = new Text("Use the Challenge button at your own risk.");
 
         // NEW ADDITION
@@ -105,6 +105,20 @@ public class ClientFX extends Application {
         hallenbeckImage.setFitHeight(180);
         hallenbeckImage.setFitWidth(157);
         hallenbeckImage.setPreserveRatio(true);
+
+        ImageView hallenbeckImage2 = new ImageView("hallenbeck2.jpg");
+        hallenbeckImage2.setX(300);
+        hallenbeckImage2.setY(300);
+        hallenbeckImage2.setFitHeight(180);
+        hallenbeckImage2.setFitWidth(157);
+        hallenbeckImage2.setPreserveRatio(true);
+
+        ImageView hallenbeckImage3 = new ImageView("hallenbeck3.jpg");
+        hallenbeckImage3.setX(300);
+        hallenbeckImage3.setY(300);
+        hallenbeckImage3.setFitHeight(180);
+        hallenbeckImage3.setFitWidth(157);
+        hallenbeckImage3.setPreserveRatio(true);
 
         hallenbeckMessage = new Text("You think you are so great by pressing that challenge button. Think again, freedom " +
                 "isn't freedom, two players aren't two players.");
@@ -120,6 +134,10 @@ public class ClientFX extends Application {
         h5.setAlignment(Pos.CENTER_LEFT);
 
         Group root = new Group(hallenbeckImage);
+
+        Group root2 = new Group(hallenbeckImage2);
+
+        Group root3 = new Group(hallenbeckImage3);
 
         closeWindow = new Button("Close Window");
 
@@ -149,7 +167,7 @@ public class ClientFX extends Application {
         challenge = new Button("Challenge");
 
         VBox vbox = new VBox();
-        vbox.getChildren().addAll(welcomeMessage,rulesMessage,startMessage,clientMessage);
+        vbox.getChildren().addAll(root2,welcomeMessage,rulesMessage,startMessage,clientMessage);
         vbox.setAlignment(Pos.CENTER);
 
         HBox hbox3 = new HBox();
@@ -176,7 +194,7 @@ public class ClientFX extends Application {
         Label portAdd = new Label("Port: ");
         portAdd.setLabelFor(port);
         portAdd.setAlignment(Pos.BOTTOM_CENTER);
-        firstWindow.getChildren().addAll(ip,port);
+        firstWindow.getChildren().addAll(root3,ip,port);
         firstWindow.setAlignment(Pos.CENTER);
         HBox hbox2 = new HBox();
         hbox2.getChildren().addAll(submitfirstinput);
