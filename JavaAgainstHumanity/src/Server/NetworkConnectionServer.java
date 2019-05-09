@@ -170,7 +170,7 @@ public abstract class NetworkConnectionServer{
                     setClient(data.toString().intern());
 
                     for (int k = 0; k < clientList.size(); k++) {
-                        if (clientList.get(k).getClient() == "Quit") {
+                        if (clientList.get(k).getClient() == "Quit" || clientList.get(k).getClient() == "Challenge") {
                             for (int x = 0; x < clientList.size(); x++) {
                                 clientList.remove(x);
                             }

@@ -274,6 +274,12 @@ public class ClientFX extends Application {
 
         challenge.setOnAction(e -> {
             primaryStage.setScene(challenges);
+            clientPick = "Challenge";
+            try {
+                conn.send(clientPick);
+            } catch (Exception quit) {
+
+            }
         }); // NEW ADDITION
 
         submitsecondinput.setOnAction(e -> {
