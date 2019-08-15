@@ -3,8 +3,19 @@ The game being implemented is called "Java Against Humanity". The game is rather
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 ### Prerequisites
+What you will need to install:
+```
+An IDE that can run Java programs
+```
+I prefer eclipse which you can download [here](https://www.eclipse.org/downloads/)
 ### Installing
 How to get the environment ready:
+```
+1. On the top right of the repository, click the green "Clone or Download" button and select "Download ZIP". Save it.
+```
+```
+2.
+```
 ### Deployment
 ## Built With
 ## Authors
