@@ -11,7 +11,7 @@ I prefer eclipse which you can download [here](https://www.eclipse.org/downloads
 ### Installing
 How to get the environment ready:
 ```
-1. On the top right of the repository, click the green "Clone or Download" button and select "Download ZIP". Save it.
+1. On the top of the repository, click the green "Clone or Download" button and select "Download ZIP". Save it.
 ```
 ```
 2. Your screen will look something like this. Select "Create a project".
@@ -36,7 +36,7 @@ How to get the environment ready:
 ```
 ### Deployment
 ## Built With
-[Eclipse] - IDE used
+[Eclipse](https://www.eclipse.org/) - IDE used
 ## Authors
 - Ammar Idrees - *Initial Design and Documentation* - [aidree3](github.com/aidree3)
 - Karan Ahuja - *Coding* - [karanahuja5598](https://github.com/karanahuja5598)
