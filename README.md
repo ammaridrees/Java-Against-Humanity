@@ -39,7 +39,8 @@ How to get the environment ready:
 1. Run "ServerFX.java". Input an open port.
 ```
 ```
-2. Run "ClientFX.java". Input an ip address for the client to play from, and then input a port (should be the same as the server)
+2. Run "ClientFX.java". Input an ip address for the client to play from, and then input a port (should be the 
+same as the server)
 ```
 ```
 3. Repeat step 2 to connect 3 more clients, and you'll be able to play the game.
