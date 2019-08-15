@@ -16,32 +16,41 @@ How to get the environment ready:
 ```
 2. Your screen will look something like this. Select "Create a project".
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(2).png)
 ```
 3. Under the "General" folder, select "Project". Then, click next.
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(3).png)
 ```
 4. You can name the project whatever you want. Select "Finish" once you name it.
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(4).png)
 ```
 5. Right click on your project, then select "Import".
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(5).png)
 ```
 6. Under "General", select "File System", then "Next".
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(6).png)
 ```
 7. Choose the project that you downloaded from this repo.
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(7).png)
 ```
 8. Check the box from the folder on the left. Then select "Finish"
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(8).png)
 ### Deployment
 ```
 1. Run "ServerFX.java". Input an open port.
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(9).png)
 ```
 2. Run "ClientFX.java". Input an ip address for the client to play from, and then input a port (should be the 
 same as the server)
 ```
+![Alt Text](https://github.com/aidree3/Java-Against-Humanity/blob/master/Tutorial%20Screen%20Shots/Screenshot%20(10).png)
 ```
 3. Repeat step 2 to connect 3 more clients, and you'll be able to play the game.
 ```
