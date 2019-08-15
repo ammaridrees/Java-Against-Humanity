@@ -14,10 +14,29 @@ How to get the environment ready:
 1. On the top right of the repository, click the green "Clone or Download" button and select "Download ZIP". Save it.
 ```
 ```
-2.
+2. Your screen will look something like this. Select "Create a project".
+```
+```
+3. Under the "General" folder, select "Project". Then, click next.
+```
+```
+4. You can name the project whatever you want. Select "Finish" once you name it.
+```
+```
+5. Right click on your project, then select "Import".
+```
+```
+6. Under "General", select "File System", then "Next".
+```
+```
+7. Choose the project that you downloaded from this repo.
+```
+```
+8. Check the box from the folder on the left. Then select "Finish"
 ```
 ### Deployment
 ## Built With
+[Eclipse] - IDE used
 ## Authors
 - Ammar Idrees - *Initial Design and Documentation* - [aidree3](github.com/aidree3)
 - Karan Ahuja - *Coding* - [karanahuja5598](https://github.com/karanahuja5598)
@@ -25,4 +44,3 @@ How to get the environment ready:
 - James Mei - *Documentation* - [jamesmei1210](https://github.com/jamesmei1210)
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/aidree3/Java-Against-Humanity/blob/master/LICENSE.md) file for details.
-## Acknowledgments
