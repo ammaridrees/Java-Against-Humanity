@@ -57,7 +57,7 @@ same as the server)
 ## Built With
 [Eclipse](https://www.eclipse.org/) - IDE used
 ## Authors
-- Ammar Idrees - *Initial Design and Documentation* - [aidree3](github.com/aidree3)
+- Ammar Idrees - *Initial Design and Documentation* - [ammaridrees](github.com/ammaridrees)
 - Karan Ahuja - *Coding* - [karanahuja5598](https://github.com/karanahuja5598)
 - J.P Purcell - *Coding* - [JParkerPurcell](https://github.com/JParkerPurcell)
 - James Mei - *Documentation* - [jamesmei1210](https://github.com/jamesmei1210)
